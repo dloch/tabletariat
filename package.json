@@ -1,0 +1,28 @@
+{
+  "name": "tabcomm",
+  "version": "0.1.0",
+  "description": "Distributed cross-tab communication",
+  "main": "dist/tabcomm.js",
+  "devDependencies": {
+    "coffee-script" : ">=1.9.0 <2.0.0",
+    "grunt-cli" : ">=0.1.13",
+    "grunt-coffee" : ">=0.0.6"
+  },
+  "dependencies": {
+    "lodash": ">=3.8.0 <4.0.0"
+  },
+  "scripts": {
+    "build": "",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fadingswordsman/tabcomm.git"
+  },
+  "author": "David R Lochridge <fadingswordsman@gmail.com> (http://fadingswordsman.com)",
+  "license": "GPLv3",
+  "bugs": {
+    "url": "https://github.com/fadingswordsman/tabcomm/issues"
+  },
+  "homepage": "https://github.com/fadingswordsman/tabcomm#readme"
+}
