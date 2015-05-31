@@ -116,6 +116,16 @@
       send: function(client, message) {
         return client.postMessage(message, location.origin);
       },
+      map: function(callback) {
+        var i, len, ref, results, tab;
+        ref = allComms();
+        results = [];
+        for (i = 0, len = ref.length; i < len; i++) {
+          tab = ref[i];
+          results.push(callback(tab));
+        }
+        return results;
+      },
       on: function(action, callback) {
         handlers[action] || (handlers[action] = []);
         return handlers[action].push(callback);

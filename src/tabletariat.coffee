@@ -56,6 +56,9 @@ define "tabletariat", ["lodash"], (_)->
       impostee.impose client, message for client in clients
     send: (client, message)-> client.postMessage message, location.origin
 
+    #More conventional mapping and stuff, intended for use before attaching new events:
+    map: (callback)-> callback(tab) for tab in allComms()
+
     #Manipulate action handlers:
     on: (action, callback)->
       handlers[action] ||= []
