@@ -73,7 +73,7 @@
       },
       enroll: function(client) {
         if (!_.include(allComms(), client)) {
-          module.broadcastAs(allComms(), {
+          module.broadcastAs({
             commAction: "enroll"
           }, client);
           updateComms(client, function(origin, toAdd) {
@@ -89,7 +89,13 @@
           return _.remove(comms[origin], toRemove);
         });
       },
-      broadcast: function(clients, message) {
+      broadcast: function(message) {
+        return this.sendAll(allComms(), message);
+      },
+      broadcastAs: function(message, impostee) {
+        return this.sendAllAs(allComms(), message, impostee);
+      },
+      sendAll: function(clients, message) {
         var client, i, len, results;
         results = [];
         for (i = 0, len = clients.length; i < len; i++) {
@@ -98,7 +104,7 @@
         }
         return results;
       },
-      broadcastAs: function(clients, message, impostee) {
+      sendAllAs: function(clients, message, impostee) {
         var client, i, len, results;
         results = [];
         for (i = 0, len = clients.length; i < len; i++) {
@@ -132,7 +138,7 @@
         });
       },
       destroy: function() {
-        module.broadcast(allComms(), {
+        module.broadcast({
           commAction: "disenroll"
         });
       }
