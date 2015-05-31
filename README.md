@@ -36,11 +36,19 @@ So is removing events:
 You can even remove specific events, if you really want to:
 
 ```js
-  require(["tabletariat"], function(){
+  require(["tabletariat"], function(t){
     var callback = function(){ console.debug("Keep track of me"); };
     t.on("eventname", callback);
     t.on("eventname", function(){ console.debug("Leave me here"); });
     t.off("eventname", callback);
+  })
+```
+
+Whenever you need help with your work, just let everyone know:
+
+```js
+  require(["tabletariat"], function(t){
+    t.broadcast({eventname: "Variables"});
   })
 ```
 

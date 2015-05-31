@@ -39,16 +39,20 @@ define "tabletariat", ["lodash"], (_)->
     #Add or remove windows:
     enroll: (client)->
       unless _.include allComms(), client
-        module.broadcastAs allComms(), {commAction: "enroll"}, client
+        module.broadcastAs {commAction: "enroll"}, client
         updateComms client, (origin, toAdd)-> comms[origin].push toAdd
         module.send client, {commAction: "enroll"}
     disenroll: (client)->
       updateComms client, (origin, toRemove)-> _.remove comms[origin], toRemove
 
     #Send messages to windows (Sometimes for other windows -- Screwy, ain't it?):
-    broadcast: (clients, message)->
+    broadcast: (message)->
+      this.sendAll allComms(), message
+    broadcastAs: (message, impostee)->
+      this.sendAllAs allComms(), message, impostee
+    sendAll: (clients, message)->
       module.send client, message for client in clients
-    broadcastAs: (clients, message, impostee)->
+    sendAllAs: (clients, message, impostee)->
       impostee.impose client, message for client in clients
     send: (client, message)-> client.postMessage message, location.origin
 
@@ -70,7 +74,7 @@ define "tabletariat", ["lodash"], (_)->
       window.addEventListener "message", dispatch
       window.opener && module.send window.opener, {commAction: "enroll"}
     destroy: ->
-      module.broadcast allComms(), {commAction: "disenroll"}
+      module.broadcast {commAction: "disenroll"}
       return
 
 
