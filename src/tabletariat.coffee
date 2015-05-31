@@ -1,4 +1,4 @@
-define "tabcomm", ["lodash"], (_)->
+define "tabletariat", ["lodash"], (_)->
   #Domains to windows:
   window.comms = {}
 
@@ -76,7 +76,7 @@ define "tabcomm", ["lodash"], (_)->
 
   return module
 
-require ["tabcomm"], (tc)->
+require ["tabletariat"], (tc)->
   tc.verbose()
   window.guid = tc.createGuid()
   tc.build()

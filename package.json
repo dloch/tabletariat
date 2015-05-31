@@ -1,8 +1,8 @@
 {
-  "name": "tabcomm",
+  "name": "tabletariat",
   "version": "0.1.0",
   "description": "Distributed cross-tab communication",
-  "main": "dist/tabcomm.js",
+  "main": "dist/tabletariat.js",
   "devDependencies": {
     "coffee-script" : ">=1.9.0 <2.0.0",
     "grunt-cli" : ">=0.1.13",
@@ -17,12 +17,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fadingswordsman/tabcomm.git"
+    "url": "git+https://github.com/fadingswordsman/tabletariat.git"
   },
   "author": "David R Lochridge <fadingswordsman@gmail.com> (http://fadingswordsman.com)",
   "license": "GPLv3",
   "bugs": {
-    "url": "https://github.com/fadingswordsman/tabcomm/issues"
+    "url": "https://github.com/fadingswordsman/tabletariat/issues"
   },
-  "homepage": "https://github.com/fadingswordsman/tabcomm#readme"
+  "homepage": "https://github.com/fadingswordsman/tabletariat#readme"
 }
