@@ -129,7 +129,7 @@
           return module.off(action, callback);
         });
       },
-      createGuid: Math.random,
+      createGuid: Math.random.toString(16).slice(2),
       build: function() {
         window.impose = module.send;
         window.addEventListener("message", dispatch);
