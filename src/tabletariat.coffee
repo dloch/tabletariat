@@ -47,9 +47,9 @@ define "tabletariat", ["lodash"], (_)->
 
     #Send messages to windows (Sometimes for other windows -- Screwy, ain't it?):
     broadcast: (message)->
-      this.sendAll allComms(), message
+      module.sendAll allComms(), message
     broadcastAs: (message, impostee)->
-      this.sendAllAs allComms(), message, impostee
+      module.sendAllAs allComms(), message, impostee
     sendAll: (clients, message)->
       module.send client, message for client in clients
     sendAllAs: (clients, message, impostee)->
@@ -58,7 +58,7 @@ define "tabletariat", ["lodash"], (_)->
 
     #Manipulate action handlers:
     on: (action, callback)->
-      handlers ||= []
+      handlers[action] ||= []
       handlers[action].push callback
     off: (action, callback)->
       _.remove.apply if callback then handlers[action] callback else handlers action

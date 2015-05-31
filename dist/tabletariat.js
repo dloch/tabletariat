@@ -90,10 +90,10 @@
         });
       },
       broadcast: function(message) {
-        return this.sendAll(allComms(), message);
+        return module.sendAll(allComms(), message);
       },
       broadcastAs: function(message, impostee) {
-        return this.sendAllAs(allComms(), message, impostee);
+        return module.sendAllAs(allComms(), message, impostee);
       },
       sendAll: function(clients, message) {
         var client, i, len, results;
@@ -117,7 +117,7 @@
         return client.postMessage(message, location.origin);
       },
       on: function(action, callback) {
-        handlers || (handlers = []);
+        handlers[action] || (handlers[action] = []);
         return handlers[action].push(callback);
       },
       off: function(action, callback) {
