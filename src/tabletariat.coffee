@@ -68,7 +68,7 @@ define "tabletariat", ["lodash"], (_)->
         module.off(action, callback)
 
     #Determine existence (In the ecosystem) and identity:
-    createGuid: -> Math.random.toString(16).slice(2)
+    createGuid: -> Math.random().toString(16).slice 2
     build: ->
       window.impose = module.send
       window.addEventListener "message", dispatch

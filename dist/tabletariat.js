@@ -130,7 +130,7 @@
         });
       },
       createGuid: function() {
-        return Math.random.toString(16).slice(2);
+        return Math.random().toString(16).slice(2);
       },
       build: function() {
         window.impose = module.send;
